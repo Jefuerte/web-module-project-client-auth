@@ -1,37 +1,24 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Link} from 'react-router-dom';
+
+import Login from './Components/Login';
+import AddFriend from './Components/AddFriend';
+import FriendsList from './Components/FriendsList';
 
 
-const FriendsList = ()=>{
-  return (<h2>FriendsList</h2>)
-}
-
-const AddFriend = ()=>{
-  return (<h2>Add Friend</h2>)
-}
-
-const Login = ()=>{
-  return(<div>
-    <h1>Login</h1>
-    <form>
-      <div>
-      <label htmlFor="username">Username:</label>
-      <input id="username"/>
-      </div>
-      <div>
-      <label htmlFor="password">Password:</label>
-      <input type="password" id="password"/>
-      </div>
-      <button>Submit</button>
-    </form>
-      </div>)
-}
 
 function App () {
   return(
     <Router>
       <div className="App">
+        <header>
+          <h2>Friends Database</h2>
+          <Link className="link" to="login">Login</Link>
+          <Link className="link" to="friends">Friends List</Link>
+          <Link className="link" to="friends/add">Add Friend</Link>
+          <Link className="link" to="friends">Logout</Link>
+        </header>
         <Route exact path="/">
           <Login />
         </Route>
